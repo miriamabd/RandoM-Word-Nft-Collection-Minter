@@ -52,7 +52,12 @@ contract Words is ERC721Enumerable, ERC721URIStorage {
         returns (string memory)
     {
         uint256 rand = random(
-            string(abi.encodePacked("FIRST_WORD", Strings.toString(tokenId)))
+            string(
+                abi.encodePacked(
+                    Strings.toString(uint256(blockhash(block.number))),
+                    Strings.toString(tokenId)
+                )
+            )
         );
         rand = rand % firstWords.length;
         return firstWords[rand];
@@ -64,7 +69,12 @@ contract Words is ERC721Enumerable, ERC721URIStorage {
         returns (string memory)
     {
         uint256 rand = random(
-            string(abi.encodePacked("SECOND_WORD", Strings.toString(tokenId)))
+            string(
+                abi.encodePacked(
+                    Strings.toString(uint256(blockhash(block.number))),
+                    Strings.toString(tokenId)
+                )
+            )
         );
         rand = rand % secondWords.length;
         return secondWords[rand];
@@ -76,7 +86,12 @@ contract Words is ERC721Enumerable, ERC721URIStorage {
         returns (string memory)
     {
         uint256 rand = random(
-            string(abi.encodePacked("THIRD_WORD", Strings.toString(tokenId)))
+            string(
+                abi.encodePacked(
+                    Strings.toString(uint256(blockhash(block.number))),
+                    Strings.toString(tokenId)
+                )
+            )
         );
         rand = rand % thirdWords.length;
         return thirdWords[rand];
@@ -88,7 +103,12 @@ contract Words is ERC721Enumerable, ERC721URIStorage {
         returns (string memory)
     {
         uint256 rand = random(
-            string(abi.encodePacked("COLOR", Strings.toString(tokenId)))
+            string(
+                abi.encodePacked(
+                    Strings.toString(uint256(blockhash(block.number))),
+                    Strings.toString(tokenId)
+                )
+            )
         );
         rand = rand % colors.length;
         return colors[rand];
